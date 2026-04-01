@@ -52,11 +52,17 @@ CREATE TABLE weather.hourly_data (
 
 ## Структура проекта
 weather_etl/
+
 ├── config.yaml # Конфигурация ETL (города, переменные, схема БД, параметры ретраев)
+
 ├── etl.ipynb # Основной ETL-ноутбук
+
 ├── requirements.txt # Зависимости Python
+
 ├── .gitignore
+
 └── dags/
+
 └── weather_dag.py # Airflow DAG с ежедневным расписанием
 
 
@@ -65,13 +71,17 @@ weather_etl/
 ## Архитектура ETL
 
 read_hwm() — читает MAX(datetime) по каждому городу из БД
-|
+
+
 fetch_weather() — запрашивает Open-Meteo за период (hwm + 1 день → вчера)
-| ретраи до 3 раз при сетевых ошибках (tenacity)
+ретраи до 3 раз при сетевых ошибках (tenacity)
+
 parse_rows() — преобразует массивы API-ответа в список строк
-|
+
+
 anti-join — отсекает уже загруженные (city, datetime) пары
-|
+
+
 persist_dataframe() — INSERT в PostgreSQL (ON CONFLICT DO NOTHING)
 — запись Parquet-файла с zstd-сжатием
 
