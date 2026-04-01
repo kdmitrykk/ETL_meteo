@@ -1,6 +1,6 @@
 # Weather ETL — Open-Meteo → PostgreSQL + Parquet
 
-Инкрементный ETL-пайплайн для сбора почасовых погодных данных из [Open-Meteo Historical API](https://open-meteo.com/en/docs/historical-weather-api) с сохранением в PostgreSQL. Каждый запуск загружает только новые записи относительно последнего успешного запуска (паттерн high-water mark). Дополнительно каждый запуск сохраняет инкремент в локальную файловую систему в колоночном сжатом формате Parquet.
+Инкрементный ETL-пайплайн для сбора почасовых погодных данных из Open-Meteo Historical API с сохранением в PostgreSQL. Каждый запуск загружает только новые записи относительно последнего успешного запуска (паттерн high-water mark). Дополнительно каждый запуск сохраняет инкремент в локальную файловую систему в колоночном сжатом формате Parquet.
 
 ---
 
@@ -93,7 +93,7 @@ persist_dataframe() — INSERT в PostgreSQL (ON CONFLICT DO NOTHING)
 ### 1. Клонировать репозиторий
 
 ```bash
-git clone https://github.com/kdmitrykk/weather-etl.git
+git clone https://github.com/kdmitrykk/ETK_meteo.git
 cd weather-etl
 ```
 
