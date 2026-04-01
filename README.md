@@ -93,12 +93,7 @@ persist_dataframe() — INSERT в PostgreSQL (ON CONFLICT DO NOTHING)
 
 ---
 
-## Быстрый старт
-
-### Требования
-
-- Python 3.9+
-- PostgreSQL с базой данных `weather`
+## Инструкция по запуску
 
 ### 1. Клонировать репозиторий
 
@@ -115,16 +110,16 @@ pip install -r requirements.txt
 
 ### 3. Настроить переменные окружения
 
-```bash
-cp .env.example .env
-```
-
 Заполнить `.env`:
 
 DB_HOST=localhost
+
 DB_PORT=5432
+
 DB_NAME=weather
+
 DB_USER=postgres
+
 DB_PASSWORD=ваш_пароль
 
 
