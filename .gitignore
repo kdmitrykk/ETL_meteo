@@ -1,0 +1,11 @@
+# Секреты
+.env
+
+# Данные и логи
+weather_etl/data/
+weather_etl/logs/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

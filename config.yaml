@@ -1,0 +1,39 @@
+database:
+  schema: "weather"
+  table: "hourly_data"
+
+cities:
+  - name: "Moscow"
+    latitude: 55.7558
+    longitude: 37.6173
+  - name: "Saint Petersburg"
+    latitude: 59.9343
+    longitude: 30.3351
+  - name: "Novosibirsk"
+    latitude: 55.0084
+    longitude: 82.9357
+
+fetch:
+  hourly_variables:
+    - "temperature_2m"
+    - "precipitation"
+    - "windspeed_10m"
+    - "cloudcover"
+  timezone: "Europe/Moscow"
+  start_date_fallback: "2026-01-01"
+
+http:
+  timeout: 120
+  user_agent: "weather-etl/1.0"
+
+retry:
+  attempts: 3
+  wait_seconds: 5
+
+logging:
+  level: "INFO"
+  file_name: "logs/etl.log"
+
+filesystem:
+  output_dir: "data"
+  compression: "zstd"
